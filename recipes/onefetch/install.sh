@@ -3,21 +3,21 @@ set -e
 
 echo "===================================================="
 echo "DAWN UNIVERSAL DEPLOYMENT LAYER ENGINE STARTED"
-echo "Target Package: fastfetch (Bare-Metal Binary Pull)"
+echo "Target Package: onefetch (Bare-Metal Binary Pull)"
 echo "===================================================="
 
 WORK_DIR=$(mktemp -d)
 cd "$WORK_DIR"
 
 echo "[1/4] Downloading pre-compiled official Linux binary from GitHub..."
-curl -sL https://github.com/fastfetch-cli/fastfetch/releases/latest/download/fastfetch-linux-amd64.tar.gz -o fastfetch.tar.gz
+curl -sL https://github.com/o2sh/onefetch/releases/latest/download/onefetch-linux-x86-64.tar.gz -o onefetch.tar.gz
 
 echo "[2/4] Extracting payload..."
-tar -xzf fastfetch.tar.gz
+tar -xzf onefetch.tar.gz
 
 echo "[3/4] Deploying binary to system local binary path (/usr/local/bin)..."
-cp fastfetch-linux-amd64/usr/bin/fastfetch /usr/local/bin/
-chmod +x /usr/local/bin/fastfetch
+cp onefetch /usr/local/bin/
+chmod +x /usr/local/bin/onefetch
 
 echo "[4/4] Cleaning up volatile installation artifacts..."
 cd /
